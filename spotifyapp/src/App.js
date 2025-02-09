@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from "react-router-dom";
+//import IndexPage from "./pages/IndexPage";
+import LoginPage from "./pages/LoginPages";
+import Callback from "./pages/Callback";
+//import Dashboard from "./pages/Dashboard";
+import { UserContextProvider } from "./UserContext";
+import Layout from "./Layout.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContextProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/callback" element={<Callback />} />
+         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        </Route>
+      </Routes>
+    </UserContextProvider>
   );
 }
 
