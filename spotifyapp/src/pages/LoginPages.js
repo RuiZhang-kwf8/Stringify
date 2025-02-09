@@ -1,3 +1,5 @@
+import "../css/styles.css"
+
 const CLIENT_ID = "your_spotify_client_id"; // Replace with your actual Client ID
 const REDIRECT_URI = "http://localhost:3000/callback";
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
@@ -11,9 +13,10 @@ const LoginPage = () => {
 
   return (
     <div className="login-page">
-      <h1>Login to Spotify</h1>
-      <a href={loginUrl}>
+      <h1 className="login-header">Stringify</h1>
+      <a href={loginUrl} className="button-container">
         <button className="login-button">Login with Spotify</button>
+        <img src="/spotify_logo.png" alt="Spotify Logo" className="button-image" />
       </a>
     </div>
   );
